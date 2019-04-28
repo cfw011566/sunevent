@@ -46,8 +46,8 @@ func sunRiseSet(sunrise bool, latitude, longitude, zenith float64) time.Time {
 	// N = N1 - (N2 * N3) + day - 30
 
 	today := time.Now()
-	_, offset := today.Zone()
-	loc := time.FixedZone("local", offset)
+	name, offset := today.Zone()
+	loc := time.FixedZone(name, offset)
 	localOffset := float64(offset) / 3600.0
 	N := float64(today.YearDay())
 
